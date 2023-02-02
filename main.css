@@ -2,11 +2,11 @@ a.navbar-brand {
     margin-left: auto;
     font-size: xx-large;
     font-weight: 600;
-    transition: 0.2s linear;
+    transition: 0.5s ease-out;
 }
 
 a.navbar-brand:hover{
-    color: rgb(255, 28, 28);
+    color: rgb(39, 255, 97);
 }
 
 ul.navbar-nav{
@@ -20,3 +20,4 @@ div.dropdown{
 }
 
 .dropdown:hover .dropdown-menu{display: block;}
+

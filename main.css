@@ -21,6 +21,7 @@ div.dropdown {
 
 .dropdown:hover .dropdown-menu {
   display: block;
+  animation: 1s;
 }
 
 button.btn.btn-secondary {

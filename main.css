@@ -2,7 +2,7 @@ a.navbar-brand {
   margin-left: auto;
   font-size: xx-large;
   font-weight: 600;
-  transition: 0.5s ease-out;
+  transition: 0.25s ease-in-out;
 }
 
 a.navbar-brand:hover {
@@ -21,4 +21,12 @@ div.dropdown {
 
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+#1,
+#2,
+#3,
+#4 {
+  margin-top: 1cm;
+  padding-top: 1cm;
 }

@@ -1,0 +1,22 @@
+{
+  "name": "html",
+  "version": "1.0.0",
+  "description": "fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhinav-21/HTML.git"
+  },
+  "author": "Abhinav Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhinav-21/HTML/issues"
+  },
+  "homepage": "https://github.com/Abhinav-21/HTML#readme",
+  "dependencies": {
+    "superheroes": "^3.0.0"
+  }
+}

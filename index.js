@@ -1,20 +1,29 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const https = require("https");
 
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
-    res.sendFile(__dirname + "/index.html");
+    const url = "https://api.waifu.im/search/";
+    // res.sendFile(__dirname+"/index.html");
+    https.get(url, function(response){
+        response.on("data", function(data){
+            const poke = JSON.parse(data);
+            console.log(poke);
+            const pic = poke.images[0].url;
+            const height = poke.images[0].height;
+            const width = poke.images[0].width;
+            res.write("<h1>treasure</h1>");
+            res.write('<img src="'+pic+'" alt="error" width="'+width+'" height="'+height+'">');
+            res.send();
+        });
+    });
 });
 
 app.post("/", function(req, res){
-    console.log(req.body);
-    var a = Number(req.body.num1);
-    var b = Number(req.body.num2);
-    var c = Math.floor(100*Math.random())*a + Math.floor(100*Math.random())*b;
-    res.send(String(c));
 });
 
 

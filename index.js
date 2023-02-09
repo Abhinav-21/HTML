@@ -14,7 +14,7 @@ app.post("/", function(req, res){
     var a = Number(req.body.num1);
     var b = Number(req.body.num2);
     var c = Math.floor(100*Math.random())*a + Math.floor(100*Math.random())*b;
-    res.send(200);
+    res.send(String(c));
 });
 
 

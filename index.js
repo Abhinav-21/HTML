@@ -26,7 +26,7 @@ app.get(options, function (one, two) {
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", function (req, res) {
+app.get("/waifu", function (req, res) {
   const url = "https://api.waifu.im/search/";
   // const requrl =
   //   "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true&precision=2";

@@ -4,20 +4,26 @@ const https = require("https");
 
 const app = express();
 
+app.use(express.static("public"));
+
+app.get("/", function (q, s) {
+  s.sendFile(__dirname + "/index.html");
+});
+
 var options = {
   method: "GET",
   hostname: "rest.coinapi.io",
   path: "/v1/exchangerate/ETH/USD",
   headers: { "X-CoinAPI-Key": "510BEBAD-3900-46EC-9D9D-E646C4BF97B7" },
 };
-
-var requ = https.get(options, function (resp) {
-  resp.on("data", function (dat) {
-    const datum = JSON.parse(dat);
-    console.log(datum);
+app.get(options, function (one, two) {
+  https.get(options, function (resp) {
+    resp.on("data", function (dat) {
+      const datum = JSON.parse(dat);
+      resp.write(datum.rate);
+    });
   });
 });
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", function (req, res) {
@@ -34,13 +40,13 @@ app.get("/", function (req, res) {
     response.on("data", function (data) {
       poke = JSON.parse(data);
 
-      console.log(poke);
-
       const pic = poke.images[0].url;
       const height = poke.images[0].height;
       const width = poke.images[0].width;
 
-      res.write("<h1>treasure</h1>");
+      res.write(
+        "<head><title>Waifu Generator</title></head><h1 font-family='Arial'>uWu</h1>"
+      );
       res.write(
         '<img src="' +
           pic +
@@ -50,6 +56,7 @@ app.get("/", function (req, res) {
           height / 5 +
           '">'
       );
+      res.write("<h2>Reload for more</h2>");
       res.send();
     });
   });
@@ -57,6 +64,6 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {});
 
-app.listen(5501, function () {
-  console.log("Server Started at 5501");
+app.listen(3000, function () {
+  console.log("Server Started at 3000");
 });

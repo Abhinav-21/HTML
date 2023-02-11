@@ -16,7 +16,7 @@ var options = {
   path: "/v1/exchangerate/ETH/USD",
   headers: { "X-CoinAPI-Key": "510BEBAD-3900-46EC-9D9D-E646C4BF97B7" },
 };
-app.post("/crypto", function (one, two) {
+app.get("/crypto", function (one, two) {
   https.get(options, function (resp) {
     resp.on("data", function (dat) {
       const datum = JSON.parse(dat);

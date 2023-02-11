@@ -16,11 +16,12 @@ var options = {
   path: "/v1/exchangerate/ETH/USD",
   headers: { "X-CoinAPI-Key": "510BEBAD-3900-46EC-9D9D-E646C4BF97B7" },
 };
-app.get(options, function (one, two) {
+app.post("/crypto", function (one, two) {
   https.get(options, function (resp) {
     resp.on("data", function (dat) {
       const datum = JSON.parse(dat);
-      resp.write(datum.rate);
+      console.log(datum.rate);
+      two.write("<h1>ETH to USD: " + datum.rate + "</h1>");
     });
   });
 });
